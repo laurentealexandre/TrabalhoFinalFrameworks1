@@ -1,0 +1,156 @@
+/* Global Styles */
+body {
+  font-family: 'Roboto', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #141414;
+  color: #fff;
+}
+
+/* Header Styles */
+header {
+  background-color: #141414;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  margin-right: 2rem;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #ccc;
+}
+
+/* Home Page Styles */
+.home-container {
+  padding: 2rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.movie-list {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 2rem;
+}
+
+.movie-card {
+  background-color: #222;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.movie-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.movie-poster {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.movie-title {
+  font-size: 1rem;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+/* Movie Details Page Styles */
+.movie-details-container {
+  display: flex;
+  padding: 2rem;
+}
+
+.movie-poster-container {
+  margin-right: 2rem;
+}
+
+.movie-poster {
+  border-radius: 4px;
+  max-width: 300px;
+}
+
+.movie-details {
+  flex: 1;
+}
+
+.movie-title {
+  font-size: 2.5rem;
+  margin-top: 0;
+}
+
+.movie-overview {
+  font-size: 1.1rem;
+  text-align: justify;
+  color: #ccc;
+}
+
+.cast-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cast-list li {
+  margin-bottom: 0.5rem;
+}
+
+/* Profile Page Styles */
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+.profile-picture {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.logout-button {
+  background-color: #e50914;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #b2030f;
+}
+
+/* Footer Styles */
+footer {
+  background-color: #141414;
+  color: #ccc;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
