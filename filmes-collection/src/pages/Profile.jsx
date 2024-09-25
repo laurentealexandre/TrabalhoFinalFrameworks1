@@ -1,59 +1,45 @@
-import { useState, useEffect } from 'react'
-import { useAuth0 } from '@auth0/auth0-react'
-import styled from 'styled-components'
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import api from '../utils/api';
 
 const Profile = () => {
-  const { user, isAuthenticated, isLoading, logout } = useAuth0()
+  const [movie, setMovie] = useState(null);
+  const { id } = useParams();
 
-  if (isLoading) {
-    return <div>Loading...</div>
-  }
+  useEffect(() => {
+    const fetchMovie = async () => {
+      try {
+        const { data } = await api.get(`/movie/${id}`);
+        setMovie(data);
+      } catch (error) {
+        console.error('Error fetching movie details:', error);
+      }
+    };
+    fetchMovie();
+  }, [id]);
 
-  if (!isAuthenticated) {
-    return <div>Please log in to view your profile.</div>
+  if (!movie) {
+    return <div>Loading...</div>;
   }
 
   return (
-    <ProfileContainer>
-      <ProfilePicture src={user.picture} alt={user.name} />
-      <h2>{user.name}</h2>
-      <p>{user.email}</p>
-      <p>Joined: {new Date(user.created_at).toLocaleDateString()}</p>
-      <LogoutButton onClick={() => logout()}>Log Out</LogoutButton>
-    </ProfileContainer>
-  )
-}
+    <div className="profile-container">
+      <h1 className="movie-title">{movie.title}</h1>
+      <div className="movie-details">
+        <img
+          src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+          alt={movie.title}
+          className="movie-poster"
+        />
+        <div className="movie-info">
+          <p><strong>Data de lançamento:</strong> {movie.release_date}</p>
+          <p><strong>Avaliação:</strong> {movie.vote_average}/10</p>
+          <p><strong>Sinopse:</strong> {movie.overview}</p>
+          <p><strong>Gênero:</strong> {movie.genres.map(genre => genre.name).join(', ')}</p>
+        </div>
+      </div>
+    </div>
+  );
+};
 
-export default Profile
-
-const ProfileContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem;
-  background-color: #222;
-  border-radius: 4px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-`
-
-const ProfilePicture = styled.img`
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 1rem;
-`
-
-const LogoutButton = styled.button`
-  background-color: #e50914;
-  color: #fff;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-
-  &:hover {
-    background-color: #b2030f;
-  }
-`
+export default Profile;

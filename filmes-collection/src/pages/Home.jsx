@@ -15,10 +15,10 @@ const Home = () => {
 
   return (
     <div className="home-container">
-      <h1 className="section-title">Movie Catalog</h1>
+      <h1 className="section-title">Catálogo de Filmes</h1>
       <div className="movie-list">
         {movies.map((movie) => (
-          <Link to={`/movie/${movie.id}`} key={movie.id}>
+          <Link to={`/profile/${movie.id}`} key={movie.id}>
             <div className="movie-card">
               <img
                 src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
