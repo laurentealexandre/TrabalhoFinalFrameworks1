@@ -3,7 +3,7 @@ import styled from 'styled-components'
 const Footer = () => {
   return (
     <FooterContainer>
-      <p>&copy; 2023 Movie App. All rights reserved.</p>
+      <p>&copy; Catálogo de filmes. Todos os direitos reservados.</p>
     </FooterContainer>
   )
 }

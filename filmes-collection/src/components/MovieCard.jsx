@@ -35,6 +35,7 @@ const Poster = styled.img`
 
 const Title = styled.h3`
   margin-bottom: 0.5rem;
+  
 `
 
 const Overview = styled.p`
