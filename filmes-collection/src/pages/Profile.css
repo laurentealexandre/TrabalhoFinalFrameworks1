@@ -1,0 +1,52 @@
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+  }
+  
+  .movie-title {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  .movie-details {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 900px;
+    color: #ffd700
+  }
+  
+  .movie-poster {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    margin-right: 20px;
+  }
+  
+  .movie-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .movie-info p {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+  }
+  
+  @media (max-width: 768px) {
+    .movie-details {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .movie-poster {
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
+  }
+  

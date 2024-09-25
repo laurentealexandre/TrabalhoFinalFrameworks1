@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import api from '../utils/api';
+import './Profile.css'; 
 
 const Profile = () => {
   const [movie, setMovie] = useState(null);
