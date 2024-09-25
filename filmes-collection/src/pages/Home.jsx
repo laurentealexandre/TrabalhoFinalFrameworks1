@@ -16,6 +16,7 @@ const Home = () => {
   return (
     <div className="home-container">
       <h1 className="section-title">Catálogo de Filmes</h1>
+      <h1 className="section-title">Clique no cartaz para ver detalhes sobre o filme</h1>
       <div className="movie-list">
         {movies.map((movie) => (
           <Link to={`/profile/${movie.id}`} key={movie.id}>

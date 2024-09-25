@@ -1,4 +1,76 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
+
+const ContactContainer = styled.div`
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+`;
+
+const SectionTitle = styled.h1`
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+`;
+
+const ContactForm = styled.form`
+  display: flex;
+  flex-direction: column;
+`;
+
+const FormGroup = styled.div`
+  margin-bottom: 20px;
+`;
+
+const Label = styled.label`
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+  font-weight: 600;
+`;
+
+const Input = styled.input`
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+
+  &:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+  }
+`;
+
+const TextArea = styled(Input).attrs({ as: 'textarea' })`
+  min-height: 150px;
+  resize: vertical;
+`;
+
+const SubmitButton = styled.button`
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 18px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.1s;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+`;
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -17,20 +89,18 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Aqui você pode adicionar a lógica para enviar os dados do formulário
     console.log('Form data:', formData);
-    // Resetar o formulário após o envio
     setFormData({ name: '', email: '', message: '' });
     alert('Mensagem enviada com sucesso!');
   };
 
   return (
-    <div className="contact-container">
-      <h1 className="section-title">Contato</h1>
-      <form onSubmit={handleSubmit} className="contact-form">
-        <div className="form-group">
-          <label htmlFor="name">Nome:</label>
-          <input
+    <ContactContainer>
+      <SectionTitle>Contato</SectionTitle>
+      <ContactForm onSubmit={handleSubmit}>
+        <FormGroup>
+          <Label htmlFor="name">Nome:</Label>
+          <Input
             type="text"
             id="name"
             name="name"
@@ -38,10 +108,10 @@ const Contact = () => {
             onChange={handleChange}
             required
           />
-        </div>
-        <div className="form-group">
-          <label htmlFor="email">Email:</label>
-          <input
+        </FormGroup>
+        <FormGroup>
+          <Label htmlFor="email">Email:</Label>
+          <Input
             type="email"
             id="email"
             name="email"
@@ -49,20 +119,20 @@ const Contact = () => {
             onChange={handleChange}
             required
           />
-        </div>
-        <div className="form-group">
-          <label htmlFor="message">Mensagem:</label>
-          <textarea
+        </FormGroup>
+        <FormGroup>
+          <Label htmlFor="message">Mensagem:</Label>
+          <TextArea
             id="message"
             name="message"
             value={formData.message}
             onChange={handleChange}
             required
-          ></textarea>
-        </div>
-        <button type="submit" className="submit-btn">Enviar</button>
-      </form>
-    </div>
+          />
+        </FormGroup>
+        <SubmitButton type="submit">Enviar</SubmitButton>
+      </ContactForm>
+    </ContactContainer>
   );
 };
 

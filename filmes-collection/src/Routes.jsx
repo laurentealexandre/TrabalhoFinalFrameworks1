@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import MovieDetails from './pages/MovieDetails'
 import Profile from './pages/Profile'
-import Contact from './pages/Contact'  // Importe o novo componente
+import Contact from './pages/Contact'  
 
 const AppRoutes = () => {
   return (
@@ -10,7 +10,7 @@ const AppRoutes = () => {
       <Route path="/" element={<Home />} />
       <Route path="/movie/:id" element={<MovieDetails />} />
       <Route path="/profile/:id" element={<Profile />} />
-      <Route path="/contact" element={<Contact />} />  // Adicione a nova rota
+      <Route path="/contact" element={<Contact />} />  
     </Routes>
   )
 }
