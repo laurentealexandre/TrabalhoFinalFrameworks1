@@ -12,7 +12,7 @@ const Profile = () => {
       try {
         const { data } = await api.get(`/movie/${id}`, {
           params: {
-            language: 'pt-BR', // Define o idioma como português do Brasil
+            language: 'pt-BR',
           },
         });
         setMovie(data);
@@ -28,27 +28,44 @@ const Profile = () => {
   }
 
   return (
-    <ProfileContainer>
-      <MovieTitle>{movie.title}</MovieTitle>
-      <MovieDetails>
-        <MoviePoster
-          src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-          alt={movie.title}
-        />
-        <MovieInfo>
-          <p><strong>Data de lançamento:</strong> {movie.release_date}</p>
-          <p><strong>Avaliação:</strong> {movie.vote_average}/10</p>
-          <p><strong>Sinopse:</strong> {movie.overview}</p>
-          <p><strong>Gênero:</strong> {movie.genres.map(genre => genre.name).join(', ')}</p>
-        </MovieInfo>
-      </MovieDetails>
-    </ProfileContainer>
+    <PageContainer>
+      <ContentContainer>
+        <ProfileContainer>
+          <MovieTitle>{movie.title}</MovieTitle>
+          <MovieDetails>
+            <MoviePoster
+              src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+              alt={movie.title}
+            />
+            <MovieInfo>
+              <p><strong>Data de lançamento:</strong> {movie.release_date}</p>
+              <p><strong>Avaliação:</strong> {movie.vote_average}/10</p>
+              <p><strong>Sinopse:</strong> {movie.overview}</p>
+              <p><strong>Gênero:</strong> {movie.genres.map(genre => genre.name).join(', ')}</p>
+            </MovieInfo>
+          </MovieDetails>
+        </ProfileContainer>
+      </ContentContainer>
+      <Footer>
+        <p>&copy; 2024 Movie Database. Todos os direitos reservados.</p>
+      </Footer>
+    </PageContainer>
   );
 };
 
 export default Profile;
 
 // Styled Components
+
+const PageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 85vh;
+`;
+
+const ContentContainer = styled.div`
+  flex: 1;
+`;
 
 const ProfileContainer = styled.div`
   display: flex;
@@ -103,4 +120,12 @@ const MovieInfo = styled.div`
   strong {
     color: #ffd700;
   }
+`;
+
+const Footer = styled.footer`
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  width: 100%;
 `;

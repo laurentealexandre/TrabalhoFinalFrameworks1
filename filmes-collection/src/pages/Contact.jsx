@@ -1,6 +1,17 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
+const PageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 85vh;
+`;
+
+const ContentContainer = styled.div`
+  flex: 1;
+  padding: 20px;
+`;
+
 const ContactContainer = styled.div`
   max-width: 600px;
   margin: 0 auto;
@@ -72,6 +83,14 @@ const SubmitButton = styled.button`
   }
 `;
 
+const Footer = styled.footer`
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  width: 100%;
+`;
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -95,44 +114,51 @@ const Contact = () => {
   };
 
   return (
-    <ContactContainer>
-      <SectionTitle>Contato</SectionTitle>
-      <ContactForm onSubmit={handleSubmit}>
-        <FormGroup>
-          <Label htmlFor="name">Nome:</Label>
-          <Input
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
-        </FormGroup>
-        <FormGroup>
-          <Label htmlFor="email">Email:</Label>
-          <Input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </FormGroup>
-        <FormGroup>
-          <Label htmlFor="message">Mensagem:</Label>
-          <TextArea
-            id="message"
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            required
-          />
-        </FormGroup>
-        <SubmitButton type="submit">Enviar</SubmitButton>
-      </ContactForm>
-    </ContactContainer>
+    <PageContainer>
+      <ContentContainer>
+        <ContactContainer>
+          <SectionTitle>Contato</SectionTitle>
+          <ContactForm onSubmit={handleSubmit}>
+            <FormGroup>
+              <Label htmlFor="name">Nome:</Label>
+              <Input
+                type="text"
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+              />
+            </FormGroup>
+            <FormGroup>
+              <Label htmlFor="email">Email:</Label>
+              <Input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+            </FormGroup>
+            <FormGroup>
+              <Label htmlFor="message">Mensagem:</Label>
+              <TextArea
+                id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                required
+              />
+            </FormGroup>
+            <SubmitButton type="submit">Enviar</SubmitButton>
+          </ContactForm>
+        </ContactContainer>
+      </ContentContainer>
+      <Footer>
+        <p>&copy; 2024 Sua Empresa. Todos os direitos reservados.</p>
+      </Footer>
+    </PageContainer>
   );
 };
 
