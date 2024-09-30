@@ -1,10 +1,15 @@
+// Importa os hooks 'useState' e 'useEffect'
 import { useState, useEffect } from 'react';
+// Importa o componente 'Link' da biblioteca 'react-router-dom'
 import { Link } from 'react-router-dom';
+// Importa a instância do axios 
 import api from '../utils/api';
 
+// Define um estado 'movies' para armazenar a lista de filmes
 const Home = () => {
   const [movies, setMovies] = useState([]);
 
+  // Usa 'useEffect' para fazer a requisição de filmes
   useEffect(() => {
     const fetchMovies = async () => {
       const { data } = await api.get('/discover/movie');
@@ -13,6 +18,7 @@ const Home = () => {
     fetchMovies();
   }, []);
 
+  // Estrutura principal do componente 'Home'
   return (
     <div className="home-container">
       <h1 className="section-title">Catálogo de Filmes</h1>

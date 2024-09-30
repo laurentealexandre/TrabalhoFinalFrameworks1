@@ -1,5 +1,7 @@
+// Importa a biblioteca Axios
 import axios from 'axios'
 
+// Dados da API
 const api = axios.create({
   baseURL: 'https://api.themoviedb.org/3',
   params: {

@@ -1,6 +1,9 @@
+// Importa as bibliotecas React e 'useState
 import React, { useState } from 'react';
+// Importa a biblioteca 'styled-components'
 import styled from 'styled-components';
 
+// Aplica CSS  utilizando styled-components.
 const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -91,6 +94,7 @@ const Footer = styled.footer`
   width: 100%;
 `;
 
+// Componente funcional 'Contact'
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -98,6 +102,7 @@ const Contact = () => {
     message: ''
   });
 
+  // Função chamada quando há mudanças nos campos do formulário
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prevState => ({
@@ -106,6 +111,7 @@ const Contact = () => {
     }));
   };
 
+  // Função chamada quando o formulário é enviado.
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Form data:', formData);
@@ -155,9 +161,7 @@ const Contact = () => {
           </ContactForm>
         </ContactContainer>
       </ContentContainer>
-      <Footer>
-        <p>&copy; 2024 Sua Empresa. Todos os direitos reservados.</p>
-      </Footer>
+      
     </PageContainer>
   );
 };

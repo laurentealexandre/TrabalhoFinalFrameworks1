@@ -1,6 +1,9 @@
+// Importa o componente 'Link' do 'react-router-dom'
 import { Link } from 'react-router-dom'
+// Importa 'styled-components'
 import styled from 'styled-components'
 
+// Define o componente funcional 'Header' que representa o cabeçalho do site.
 const Header = () => {
   return (
     <HeaderContainer>
@@ -17,6 +20,7 @@ const Header = () => {
 
 export default Header
 
+// Aplica CSS  utilizando styled-components.
 const HeaderContainer = styled.header`
   background-color: #333;
   color: #fff;

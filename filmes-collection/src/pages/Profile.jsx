@@ -1,12 +1,18 @@
+// Importa React e hooks useState e useEffect
 import React, { useState, useEffect } from 'react';
+// Importa useParams
 import { useParams } from 'react-router-dom';
+// Importa a instância da API
 import api from '../utils/api';
+// Importa styled-components
 import styled from 'styled-components';
 
+// Define o componente Profile
 const Profile = () => {
   const [movie, setMovie] = useState(null);
   const { id } = useParams();
 
+  // useEffect para buscar os detalhes do filme
   useEffect(() => {
     const fetchMovie = async () => {
       try {
@@ -27,6 +33,7 @@ const Profile = () => {
     return <div>Loading...</div>;
   }
 
+  // Renderiza os detalhes do filme
   return (
     <PageContainer>
       <ContentContainer>
@@ -46,16 +53,14 @@ const Profile = () => {
           </MovieDetails>
         </ProfileContainer>
       </ContentContainer>
-      <Footer>
-        <p>&copy; 2024 Movie Database. Todos os direitos reservados.</p>
-      </Footer>
+      
     </PageContainer>
   );
 };
 
 export default Profile;
 
-// Styled Components
+// Aplica CSS  utilizando styled-components.
 
 const PageContainer = styled.div`
   display: flex;

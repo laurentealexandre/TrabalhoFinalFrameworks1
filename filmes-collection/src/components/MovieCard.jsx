@@ -1,5 +1,7 @@
+// Importa a biblioteca 'styled-components'
 import styled from 'styled-components'
 
+// Define o componente funcional 'MovieCard'
 const MovieCard = ({ movie }) => {
   return (
     <Card>
@@ -12,6 +14,7 @@ const MovieCard = ({ movie }) => {
 
 export default MovieCard
 
+// Aplica CSS  utilizando styled-components.
 const Card = styled.div`
   display: flex;
   flex-direction: column;
